@@ -105,13 +105,6 @@ const Footer = () => {
           {/* LEFT START */}
           <div className="text-[16px] text-white/[0.5] hover:text-white cursor-pointer text-center md:text-left font-inter">
             © 2024{" "}
-            {/* <a
-              href="https://github.com/ParthKanojiya"
-              target="_blank"
-              className="font-bold"
-            >
-              Parth Kanojiya
-            </a> */}
             <Link
               to="https://github.com/ParthKanojiya"
               target="_blank"
