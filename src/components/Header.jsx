@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { ImCross } from "react-icons/im";
 import { FaSearch } from "react-icons/fa";
+import Logo from "../assets/logo.svg";
 
 const MenuData = [
   { id: 1, name: "Home", url: "/" },
@@ -53,7 +54,7 @@ const Header = () => {
         {/* 3 Dots Icon End */}
 
         <Link to="/" className="logo cursor-pointer flex-1 md:flex-none">
-          <img src="/src/assets/logo.svg" alt="logo" className="logo-img" />
+          <img src={Logo} alt="logo" className="logo-img" />
           <h1 className="text-2xl w-1/2 md:w-full md:text-3xl font-clashDisplay font-black leading-none">
             Web Shop
           </h1>

@@ -1,4 +1,10 @@
 import React, { useRef, useState } from "react";
+import NikeAir from "../assets/banner-1.png";
+import AirJordan from "../assets/banner-2.png";
+import NikeAirMax from "../assets/banner-3.png";
+import AirJordan102 from "../assets/banner-4.png";
+import NikeAirMax720 from "../assets/banner-5.png";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -11,23 +17,23 @@ const ShoesData = [
   {
     id: 1,
     name: "Nike Air Force 1 Mid 07 LV",
-    url: "/src/assets/banner-1.png",
+    url: { NikeAir },
   },
   {
     id: 2,
     name: "Air Jordan 1 Retro High Og",
-    url: "/src/assets/banner-2.png",
+    url: { AirJordan },
   },
   {
     id: 3,
     name: "Nike Air Max 90",
-    url: "/src/assets/banner-3.png",
+    url: { NikeAirMax },
   },
-  { id: 4, name: "Air Jordan 102 Aqua", url: "/src/assets/banner-4.png" },
+  { id: 4, name: "Air Jordan 102 Aqua", url: { AirJordan102 } },
   {
     id: 5,
     name: "Nike Air Max 720",
-    url: "/src/assets/banner-5.png",
+    url: { NikeAirMax720 },
   },
 ];
 
