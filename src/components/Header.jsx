@@ -95,7 +95,7 @@ const Header = () => {
         `}
           >
             <div className="mobile-logo flex items-center gap-4 p-4">
-              <img src="/src/assets/logo.svg" alt="logo" className="h-12" />
+              <img src={Logo} alt="logo" className="h-12" />
               <h2 className="font-clashDisplay text-2xl font-black">
                 Web Shop
               </h2>
