@@ -17,23 +17,23 @@ const ShoesData = [
   {
     id: 1,
     name: "Nike Air Force 1 Mid 07 LV",
-    url: { NikeAir },
+    url: `${NikeAir}`,
   },
   {
     id: 2,
     name: "Air Jordan 1 Retro High Og",
-    url: { AirJordan },
+    url: `${AirJordan}`,
   },
   {
     id: 3,
     name: "Nike Air Max 90",
-    url: { NikeAirMax },
+    url: `${NikeAirMax}`,
   },
-  { id: 4, name: "Air Jordan 102 Aqua", url: { AirJordan102 } },
+  { id: 4, name: "Air Jordan 102 Aqua", url: `${AirJordan102}` },
   {
     id: 5,
     name: "Nike Air Max 720",
-    url: { NikeAirMax720 },
+    url: `${NikeAirMax720}`,
   },
 ];
 
