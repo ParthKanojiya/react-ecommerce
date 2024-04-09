@@ -66,7 +66,7 @@ body {
     object-fit: contain;
     aspect-ratio: 4/5; */
 
-  width: 100%;
+  /* width: 100%; */
   object-fit: cover;
   /* height: 22rem; */
   /* border-radius: 0.5rem; */
@@ -93,6 +93,11 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.box-shadow {
+  border: 1px solid rgb(40, 40, 37);
+  box-shadow: rgb(40, 40, 37) 3px 3px 0px 0px;
 }
 
 /* .product-details {
@@ -152,7 +157,7 @@ h3 {
   border-radius: 100px;
   /* padding: 8px 14px; */
   font-size: 16px;
-  font-weight: 500;
+  /* font-weight: 500;  */
   display: inline-block;
   transition: box-shadow 0.25s cubic-bezier(0.645, 0.045, 0.355, 1),
     transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);

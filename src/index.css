@@ -8,3 +8,45 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+
+/* Nohemi Font */
+
+@font-face {
+  font-family: "MonaSansExtraLight";
+  src: url("./fonts/MonaSans-ExtraLight.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "MonaSansLight";
+  src: url("./fonts/MonaSans-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "MonaSansRegular";
+  src: url("./fonts/MonaSans-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "MonaSansMedium";
+  src: url("./fonts/MonaSans-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "MonaSans-SemiBold";
+  src: url("./fonts/MonaSans-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "MonaSansBold";
+  src: url("./fonts/MonaSans-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "MonaSansExtraBold";
+  src: url("./fonts/MonaSans-ExtraBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "MonaSansBlack";
+  src: url("./fonts/MonaSans-Black.woff2") format("woff2");
+}

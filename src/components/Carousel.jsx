@@ -61,7 +61,7 @@ const Carousel = () => {
         {ShoesData.map((data) => (
           <SwiperSlide key={data.id}>
             <div className="slide-wrapper flex justify-between md:flex md:justify-between md:items-center md:flex-row flex-col-reverse p-0 md:p-8">
-              <p className="shoes-name text-3xl sm:text-5xl md:text-7xl lg:text-[5.5rem] w-full md:w-6/12 font-clashDisplay font-black leading-tight opacity-35 text-center md:text-left text-[#4a4c6c]">
+              <p className="shoes-name text-3xl sm:text-5xl md:text-7xl lg:text-[5.5rem] w-full md:w-6/12 font-unbounded font-black leading-tight opacity-35 text-center md:text-left text-[#4a4c6c]">
                 {data.name}
               </p>
               <img

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { ImCross } from "react-icons/im";
-import { FaSearch } from "react-icons/fa";
+import { VscChromeClose } from "react-icons/vsc";
+
 import Logo from "../assets/logo.svg";
+import { CartState } from "../context/Context";
 
 const MenuData = [
   { id: 1, name: "Home", url: "/" },
@@ -24,8 +25,11 @@ const boxShadow = {
 
 const Header = () => {
   const [open, setOpen] = useState(false);
-
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [searchText, setSearchText] = useState("");
+
+  const { products, setProducts, cart, filteredProducts, setFilteredProducts } =
+    CartState();
 
   useEffect(() => {
     setScreenWidth(window.innerWidth);
@@ -49,13 +53,19 @@ const Header = () => {
           className="block md:hidden w-10 text-2xl cursor-pointer"
           onClick={() => setOpen(!open)}
         >
-          <GiHamburgerMenu />
+          {/* <GiHamburgerMenu /> */}
+          {/* {!open ? <VscChromeClose /> : <GiHamburgerMenu />} */}
+          {!open ? (
+            <GiHamburgerMenu />
+          ) : (
+            <VscChromeClose className="stroke-1" />
+          )}
         </div>
         {/* 3 Dots Icon End */}
 
         <Link to="/" className="logo cursor-pointer flex-1 md:flex-none">
           <img src={Logo} alt="logo" className="logo-img" />
-          <h1 className="text-2xl w-1/2 md:w-full md:text-3xl font-clashDisplay font-black leading-none">
+          <h1 className="text-2xl w-1/2 md:w-full md:text-3xl font-unbounded font-black leading-none">
             Web Shop
           </h1>
         </Link>
@@ -67,13 +77,13 @@ const Header = () => {
         {/* 3 Dots Icon Start */}
 
         {/* Menu Start */}
-        <div className="menu hidden md:flex md:items-center md:gap-8">
+        <div className="menu hidden lg:flex lg:items-center lg:gap-8">
           {MenuData.map((data) => (
             <ul key={data.id}>
               <li>
                 <Link
                   to={data.url}
-                  className="menu-item font-clashDisplay text-xl font-bold cursor-pointer tracking-wider"
+                  className="menu-item font-GeneralSans uppercase text-xl font-black cursor-pointer"
                 >
                   {data.name}
                 </Link>
@@ -83,29 +93,73 @@ const Header = () => {
         </div>
         {/* Menu End */}
 
-        {/* Mobile Menu Start */}
+        {/*
+         ** Mobile Menu Start
+         */}
 
         <div
-          className={`mobile-menu-wrapper absolute w-full h-dvh top-0 flex items-center justify-between transition-all ease-in-out duration-300 ${
-            open ? "left-0" : "-left-full"
+          className={`mobile-menu-wrapper absolute w-full top-20 left-0 flex items-center justify-between md:hidden transition-all ease-in-out duration-300 ${
+            // open ? "left-0" : "-left-full"
+            // open ? "hidden" : "block"
+            open ? "block" : "hidden"
           }`}
         >
           <div
-            className={`mobile-menu w-4/5 h-dvh bg-white transition-transform z-10
+            className={`mobile-menu w-full h-auto bg-white transition-transform z-10
         `}
           >
-            <div className="mobile-logo flex items-center gap-4 p-4">
+            {/* <div className="mobile-logo flex items-center gap-4 p-4">
               <img src={Logo} alt="logo" className="h-12" />
-              <h2 className="font-clashDisplay text-2xl font-black">
-                Web Shop
-              </h2>
+              <h2 className="font-unbounded text-2xl font-black">Web Shop</h2>
+            </div> */}
+
+            <div className="input w-full flex sm:flex py-4 pl-4 pr-4">
+              <input
+                type="search"
+                placeholder="Search..."
+                className="bg-transparent placeholder:text-neutral-500 pt-2 pb-2 pl-2 pr-2 outline-none w-full font-GeneralSans placeholder:font-medium font-semibold placeholder:tracking-wider tracking-wider border-2 rounded"
+                value={searchText}
+                onChange={(e) => {
+                  setSearchText(e.target.value);
+                }}
+              />
+              <div
+                className="mobile-search-icon pl-2 pr-2 pt-2 pb-2"
+                onClick={() => {
+                  const filteredItems = products.filter((product) =>
+                    product?.fnlColorVariantData?.brandName
+                      .toLowerCase()
+                      .includes(searchText.toLowerCase())
+                  );
+                  setFilteredProducts(filteredItems);
+                  setOpen(false);
+                }}
+              >
+                <svg
+                  className=""
+                  data-testid="geist-icon"
+                  fill="none"
+                  width="28"
+                  height="28"
+                  shapeRendering="geometricPrecision"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M11 17.25a6.25 6.25 0 110-12.5 6.25 6.25 0 010 12.5z"></path>
+                  <path d="M16 16l4.5 4.5"></path>
+                </svg>
+              </div>
             </div>
+
             {MenuData.map((data) => (
               <ul key={data.id}>
                 <li className="p-4 border-b-[1px]">
                   <a
                     href={data.url}
-                    className="menu-item text-lg font-clashDisplay font-bold cursor-pointer tracking-wider"
+                    className="menu-item text-lg font-GeneralSans font-black cursor-pointer tracking-wider"
                   >
                     {data.name}
                   </a>
@@ -113,10 +167,10 @@ const Header = () => {
               </ul>
             ))}
           </div>
-          <div
+          {/* <div
             className={`md:hidden text-1xl w-1/5 h-dvh bg-black text-white z-50 opacity-50 cursor-pointer`}
             onClick={() => setOpen(!open)}
-          ></div>
+          ></div> */}
         </div>
         {/* Mobile Menu End */}
       </div>
@@ -126,14 +180,59 @@ const Header = () => {
       <div className="right-nav flex items-center gap-4">
         {/* Search Bar Start */}
         <div
-          className={`search-bar sm:flex sm:items-center justify-between rounded cursor-pointer relative bg-[#e9e9e9]`}
+          className="bg-transparent p-2 rounded sm:hidden"
+          // style={boxShadow.Shadow}
+          onClick={() => setOpen(!open)}
+        >
+          <svg
+            className=""
+            data-testid="geist-icon"
+            fill="none"
+            width="28"
+            height="28"
+            shapeRendering="geometricPrecision"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2.5"
+            viewBox="0 0 24 24"
+          >
+            <path d="M11 17.25a6.25 6.25 0 110-12.5 6.25 6.25 0 010 12.5z"></path>
+            <path d="M16 16l4.5 4.5"></path>
+          </svg>
+        </div>
+
+        <div
+          className={`search-bar sm:flex sm:items-center justify-between rounded cursor-pointer relative bg-[#e9e9e9] pl-4 hidden`}
           style={{
             ...{
               ...(screenWidth >= 640 ? boxShadow.Shadow : boxShadow.ShadowNone),
             },
           }}
         >
-          <div className="search-icon pl-2 pr-2 pt-2 pb-2">
+          <div className="input w-full hidden sm:flex">
+            <input
+              type="search"
+              placeholder="Search..."
+              className="bg-transparent placeholder:text-neutral-500 pt-2 pb-2 outline-none w-full font-GeneralSans placeholder:font-medium font-semibold placeholder:tracking-wider tracking-wider"
+              value={searchText}
+              onChange={(e) => {
+                setSearchText(e.target.value);
+              }}
+            />
+          </div>
+
+          <div
+            className="search-icon pl-2 pr-2 pt-2 pb-2"
+            onClick={() => {
+              const filteredItems = products.filter((product) =>
+                product?.fnlColorVariantData?.brandName
+                  .toLowerCase()
+                  .includes(searchText.toLowerCase())
+              );
+              setFilteredProducts(filteredItems);
+            }}
+          >
             <svg
               className=""
               data-testid="geist-icon"
@@ -151,17 +250,13 @@ const Header = () => {
               <path d="M16 16l4.5 4.5"></path>
             </svg>
           </div>
-          <div className="input w-full hidden sm:flex">
-            <input
-              type="search"
-              placeholder="Search..."
-              className="bg-transparent placeholder:text-neutral-500 pt-2 pb-2 outline-none w-full font-clashDisplay placeholder:font-medium font-semibold placeholder:tracking-wider tracking-wider"
-            />
-          </div>
         </div>
         {/* Search Bar End */}
 
-        <Link to="/cart" className="cart">
+        <Link to="/cart" className="cart relative">
+          <span className="absolute -top-3 -right-3 flex items-center justify-center w-6 h-6 bg-red-600 text-sm text-white font-semibold rounded-full">
+            {cart.length}
+          </span>
           <div className="cart cursor-pointer">
             <span>
               <svg

@@ -8,7 +8,9 @@ import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import About from "./components/About.jsx";
 import Products from "./components/Products.jsx";
+import ProductPage from "./components/ProductPage.jsx";
 import Cart from "./components/Cart.jsx";
+import { Context } from "./context/Context.jsx";
 
 const AppLayout = () => {
   return (
@@ -43,6 +45,10 @@ const router = createBrowserRouter([
         path: "/products",
         element: <Products />,
       },
+      {
+        path: "/:id",
+        element: <ProductPage />,
+      },
       // {
       //   path: "/products/:productId",
       //   element: <Product />,
@@ -51,8 +57,20 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Context>
+      <RouterProvider router={router} />
+    </Context>
   </React.StrictMode>
 );
+
+// ReactDOM.createRoot(document.getElementById("root")).render(
+//   <React.StrictMode>
+//     <Context>
+//       <RouterProvider router={router} />
+//     </Context>
+//   </React.StrictMode>
+// );

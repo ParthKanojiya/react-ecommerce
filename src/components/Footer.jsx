@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="flex gap-[50px] md:gap-[75px] lg:gap-[100px] flex-col md:flex-row">
             {/* MENU START */}
             <div className="flex flex-col gap-3 shrink-0">
-              <div className="font-clashDisplay font-semibold uppercase text-sm cursor-pointer tracking-widest">
+              <div className="font-unbounded font-bold uppercase text-sm cursor-pointer">
                 Find a store
               </div>
               <div className="font-inter font-medium capitalize text-sm cursor-pointer">
@@ -33,22 +33,22 @@ const Footer = () => {
             <div className="flex gap-[50px] md:gap-[75px] lg:gap-[100px] shrink-0">
               {/* MENU START */}
               <div className="flex flex-col gap-3 font-inter">
-                <div className="font-clashDisplay font-semibold uppercase text-sm tracking-widest">
+                <div className="font-unbounded font-bold uppercase text-sm">
                   get help
                 </div>
-                <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
+                <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer font-medium">
                   Order Status
                 </div>
-                <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
+                <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer font-medium">
                   Delivery
                 </div>
-                <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
+                <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer font-medium">
                   Returns
                 </div>
-                <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
+                <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer font-medium">
                   Payment Options
                 </div>
-                <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
+                <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer font-medium">
                   Contact Us
                 </div>
               </div>
@@ -56,19 +56,19 @@ const Footer = () => {
 
               {/* MENU START */}
               <div className="flex flex-col gap-3 font-inter">
-                <div className="font-clashDisplay font-semibold uppercase text-sm tracking-widest">
+                <div className="font-unbounded font-bold uppercase text-sm">
                   About nike
                 </div>
-                <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
+                <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer font-medium">
                   News
                 </div>
-                <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
+                <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer font-medium">
                   Careers
                 </div>
-                <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
+                <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer font-medium">
                   Investors
                 </div>
-                <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer">
+                <div className="text-sm text-white/[0.5] hover:text-white cursor-pointer font-medium">
                   Sustainability
                 </div>
               </div>
@@ -103,7 +103,7 @@ const Footer = () => {
         </div>
         <div className="flex justify-between mt-10 flex-col md:flex-row gap-[10px] md:gap-0">
           {/* LEFT START */}
-          <div className="text-[16px] text-white/[0.5] hover:text-white cursor-pointer text-center md:text-left font-inter">
+          <div className="text-[16px] text-white/[0.5] hover:text-white cursor-pointer text-center md:text-left font-inter font-medium">
             © 2024{" "}
             <Link
               to="https://github.com/ParthKanojiya"
@@ -118,16 +118,16 @@ const Footer = () => {
 
           {/* RIGHT START */}
           <div className="flex gap-2 md:gap-5 text-center md:text-left flex-wrap justify-center font-inter">
-            <div className="text-[12px] text-white/[0.5] hover:text-white cursor-pointer">
+            <div className="text-[12px] text-white/[0.5] hover:text-white cursor-pointer font-medium">
               Guides
             </div>
-            <div className="text-[12px] text-white/[0.5] hover:text-white cursor-pointer">
+            <div className="text-[12px] text-white/[0.5] hover:text-white cursor-pointer font-medium">
               Terms of Sale
             </div>
-            <div className="text-[12px] text-white/[0.5] hover:text-white cursor-pointer">
+            <div className="text-[12px] text-white/[0.5] hover:text-white cursor-pointer font-medium">
               Terms of Use
             </div>
-            <div className="text-[12px] text-white/[0.5] hover:text-white cursor-pointer">
+            <div className="text-[12px] text-white/[0.5] hover:text-white cursor-pointer font-medium">
               Privacy Policy
             </div>
           </div>
